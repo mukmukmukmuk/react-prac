@@ -11,11 +11,29 @@ const IterationSample = () => {
   const [nextId, setNextId] = useState(5);
 
   const changeHandler = (event) => setInputText(event.target.value);
-  const namesList = names.map((name) => <li key={name.id}>{name.text}</li>);
-
+  const clickHandler = () => {
+    const nextNames = names.concat({
+      id: nextId,
+      text: inputText,
+    });
+    setNextId(nextId + 1);
+    setNames(nextNames);
+    setInputText("");
+  };
+  const namesList = names.map((name) => (
+    <li key={name.id} onDoubleClick={() => removeHandler(name.id)}>
+      {name.text}
+    </li>
+  ));
+  const removeHandler = (id) => {
+    const nextNames = names.filter((name) => name.id !== id);
+    setNames(nextNames);
+  };
   return (
     <>
-      <input />
+      <input value={inputText} onChange={changeHandler} />
+      <button onClick={clickHandler}>추가</button>
+      <ul>{namesList}</ul>
     </>
   );
 };
