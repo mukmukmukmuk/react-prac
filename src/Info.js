@@ -5,11 +5,10 @@ const Info = () => {
   const [nickname, setNickname] = useState("");
   useEffect(() => {
     console.log("렌더링이 완료되었습니다.");
-    console.log({
-      name,
-      nickname,
-    });
-  }, [name]);
+    return () => {
+      console.log("clean up");
+    };
+  }, []);
   const changNameHandler = (event) => {
     setName(event.target.value);
   };

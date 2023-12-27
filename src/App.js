@@ -1,16 +1,8 @@
-//import logo from './logo.svg';
-//import ValidationSample from "./ValidationSample";
-//import IterationSample from "./IterationSample";
-import Info from "./Info";
-
-// class App extends Component {
-//   render() {
-//     return <IterationSample></IterationSample>;
-//   }
-// }
+import Average from "./Average";
 
 const App = () => {
-  return <Info />;
+  //const [visible, setVisible] = useState(false);
+  return <Average />;
 };
 
 export default App;
